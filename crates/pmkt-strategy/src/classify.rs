@@ -53,6 +53,8 @@ pub fn classify_bucket(
             stats.pct_profitable_windows, config.min_pct_profitable_windows
         ));
     }
+    // worst_window_loss is negative (e.g. -15.0); max_worst_window_loss is the floor
+    // (e.g. -20.0). Reject if actual loss is worse (more negative) than the floor.
     if stats.worst_window_loss < config.max_worst_window_loss {
         reasons.push(format!(
             "worst_window_loss {:.2} < limit {:.2}",

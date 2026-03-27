@@ -331,7 +331,7 @@ fn draw_orderbook_and_controls(f: &mut Frame, area: Rect, s: &pmkt_app::AppState
     if s.risk_state.kill_switch_triggered {
         ctrl_lines.push(Line::from(Span::styled(
             "⚠️  KILL SWITCH ACTIVE",
-            Style::default().fg(Color::Red).add_modifier(Modifier::BOLD | Modifier::RAPID_BLINK),
+            Style::default().fg(Color::Red).add_modifier(Modifier::BOLD),
         )));
     }
 

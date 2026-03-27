@@ -4,7 +4,7 @@ use chrono::Utc;
 /// DRY mode fill simulator.
 /// Uses a conservative touch-based fill model.
 pub struct DrySimulator {
-    /// Fraction of spread as slippage cost
+    /// Fraction of price added as slippage (e.g. 0.005 = 0.5% of price)
     pub slippage_fraction: f64,
     /// Flat fee per trade in USDC
     pub flat_fee: f64,
@@ -13,15 +13,16 @@ pub struct DrySimulator {
 impl DrySimulator {
     pub fn new() -> Self {
         DrySimulator {
-            slippage_fraction: 0.5,
+            slippage_fraction: 0.005, // 0.5% of price
             flat_fee: 0.0,
         }
     }
 
     /// Simulate placing an order from an intent.
-    /// Returns an immediately "filled" simulated order.
+    /// Returns an immediately "filled" simulated order using a conservative
+    /// touch-based fill model: fill price = intent.price * (1 + slippage).
     pub fn simulate_fill(&self, intent: &OrderIntent) -> ExecutionOrder {
-        let fill_price = intent.price + self.slippage_fraction * 0.01;
+        let fill_price = (intent.price * (1.0 + self.slippage_fraction)).min(1.0);
         let now = Utc::now();
         ExecutionOrder {
             id: uuid::Uuid::new_v4(),

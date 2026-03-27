@@ -95,6 +95,7 @@ async fn run_loop(
                     (KeyCode::Char('3'), _) => active_tab = ActiveTab::SignalExplanation,
                     (KeyCode::Char('4'), _) => active_tab = ActiveTab::OrderLog,
                     (KeyCode::Char('5'), _) => active_tab = ActiveTab::SystemHealth,
+                    (KeyCode::Char('6'), _) => active_tab = ActiveTab::RiskAlerts,
 
                     // Mode control
                     (KeyCode::Char('m'), _) => {

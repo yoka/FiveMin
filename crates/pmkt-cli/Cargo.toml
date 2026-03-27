@@ -1,0 +1,37 @@
+[package]
+name = "pmkt-cli"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "pmkt-ui"
+path = "src/bin/pmkt-ui.rs"
+
+[[bin]]
+name = "pmkt-analyze"
+path = "src/bin/pmkt-analyze.rs"
+
+[[bin]]
+name = "pmkt-replay"
+path = "src/bin/pmkt-replay.rs"
+
+[[bin]]
+name = "pmkt-admin"
+path = "src/bin/pmkt-admin.rs"
+
+[dependencies]
+pmkt-domain = { path = "../pmkt-domain" }
+pmkt-strategy = { path = "../pmkt-strategy" }
+pmkt-data = { path = "../pmkt-data" }
+pmkt-execution = { path = "../pmkt-execution" }
+pmkt-store = { path = "../pmkt-store" }
+pmkt-app = { path = "../pmkt-app" }
+pmkt-tui = { path = "../pmkt-tui" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+chrono = { workspace = true }
+anyhow = { workspace = true }
+tokio = { workspace = true }
+uuid = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }

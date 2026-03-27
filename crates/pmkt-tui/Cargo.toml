@@ -1,0 +1,17 @@
+[package]
+name = "pmkt-tui"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pmkt-domain = { path = "../pmkt-domain" }
+pmkt-app = { path = "../pmkt-app" }
+pmkt-strategy = { path = "../pmkt-strategy" }
+serde = { workspace = true }
+chrono = { workspace = true }
+anyhow = { workspace = true }
+tokio = { workspace = true }
+ratatui = { workspace = true }
+crossterm = { workspace = true }
+tracing = { workspace = true }
+parking_lot = { workspace = true }

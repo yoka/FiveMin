@@ -1,0 +1,19 @@
+[package]
+name = "pmkt-app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pmkt-domain = { path = "../pmkt-domain" }
+pmkt-strategy = { path = "../pmkt-strategy" }
+pmkt-execution = { path = "../pmkt-execution" }
+pmkt-store = { path = "../pmkt-store" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+chrono = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+parking_lot = { workspace = true }
+uuid = { workspace = true }

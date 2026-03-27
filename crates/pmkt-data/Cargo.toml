@@ -1,0 +1,14 @@
+[package]
+name = "pmkt-data"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pmkt-domain = { path = "../pmkt-domain" }
+pmkt-strategy = { path = "../pmkt-strategy" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+csv = { workspace = true }
+chrono = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
